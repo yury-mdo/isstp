@@ -29,17 +29,20 @@ fileprivate func > <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
     }
 }
 
-
 class OptionViewController: NSViewController, NSTableViewDelegate {
     var account: Account?
     var superViewController: ViewController?
 
+    @IBOutlet var commandsTextView: NSTextView!
     @IBOutlet weak var optionText: NSTextField!
     @IBOutlet weak var doesSkipCertWarn: NSButton!
 
     override func viewWillAppear() {
         preferredContentSize = self.view.frame.size
         optionText.stringValue = account!.option!
+        if let commands = account?.commands {
+            commandsTextView.string = commands
+        }
 
         if (account?.doesSkipCertWarn?.count > 0) {
             doesSkipCertWarn.state = NSControl.StateValue.on
@@ -50,6 +53,7 @@ class OptionViewController: NSViewController, NSTableViewDelegate {
 
     @IBAction func saveBtnPressed(_ sender: AnyObject) {
         account?.option = optionText.stringValue
+        account?.commands = commandsTextView.textStorage?.string
 
         if (doesSkipCertWarn.state == NSControl.StateValue.off) {
             account?.doesSkipCertWarn = ""
@@ -63,6 +67,7 @@ class OptionViewController: NSViewController, NSTableViewDelegate {
 
     @IBAction func resetBtnPressed(_ sender: AnyObject) {
         optionText.stringValue = account!.defaultOption
+        commandsTextView.string = ""
         doesSkipCertWarn.state = NSControl.StateValue.on
     }
 }

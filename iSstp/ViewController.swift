@@ -212,11 +212,6 @@ class ViewController: NSViewController, NSTableViewDelegate {
 
             optionViewController.account = accounts[arrayController.selectionIndex]
             optionViewController.superViewController = self
-        } else if (segue.identifier == "Post Commands") {
-            let postCommandViewController = segue.destinationController as! PostCommandsViewController
-            
-            postCommandViewController.account = accounts[arrayController.selectionIndex]
-            postCommandViewController.superViewController = self
         }
     }
 }

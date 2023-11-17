@@ -19,7 +19,7 @@ class Account: NSObject, NSCoding {
     @objc dynamic var doesSkipCertWarnDefault: String = "--cert-warn"
 
     @objc dynamic var option: String?
-    @objc dynamic var defaultOption: String = "usepeerdns require-mschap-v2 refuse-eap noauth noipdefault defaultroute"
+    @objc dynamic var defaultOption: String = "usepeerdns require-mschap-v2 refuse-eap noauth noipdefault"
     
     @objc dynamic var commands: String?
 

@@ -20,7 +20,6 @@
 		53A358341A9E3B4400A2185E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53A358331A9E3B4400A2185E /* Images.xcassets */; };
 		53FA6A9E26EAB76A0082C7D2 /* install.sh in Resources */ = {isa = PBXBuildFile; fileRef = 53FA6A9D26EAB76A0082C7D2 /* install.sh */; };
 		8A1524FE2B075ACB00172A91 /* sstpc in Resources */ = {isa = PBXBuildFile; fileRef = 8A1524FD2B075ACB00172A91 /* sstpc */; };
-		8A1525002B075B6500172A91 /* PostCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1524FF2B075B6500172A91 /* PostCommandViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +72,6 @@
 		53B6934A26EA469E00E161B2 /* sstpc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sstpc; sourceTree = "<group>"; };
 		53FA6A9D26EAB76A0082C7D2 /* install.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 		8A1524FD2B075ACB00172A91 /* sstpc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sstpc; sourceTree = "<group>"; };
-		8A1524FF2B075B6500172A91 /* PostCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommandViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +132,6 @@
 				534F32211A9E47F9001B7745 /* Account.swift */,
 				53A358331A9E3B4400A2185E /* Images.xcassets */,
 				53A358351A9E3B4400A2185E /* Main.storyboard */,
-				8A1524FF2B075B6500172A91 /* PostCommandViewController.swift */,
 			);
 			path = iSstp;
 			sourceTree = "<group>";
@@ -274,7 +271,6 @@
 				5347C40B1A9EA47200B77B5B /* WindowController.swift in Sources */,
 				53A358301A9E3B4400A2185E /* AppDelegate.swift in Sources */,
 				534F32221A9E47F9001B7745 /* Account.swift in Sources */,
-				8A1525002B075B6500172A91 /* PostCommandViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +437,7 @@
 					"$(PROJECT_DIR)/iSstp/sstp/1.0.9/lib",
 					"$(PROJECT_DIR)/iSstp/sstp-client/lib",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.4.1;
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -467,6 +464,7 @@
 					"$(PROJECT_DIR)/iSstp/sstp/1.0.9/lib",
 					"$(PROJECT_DIR)/iSstp/sstp-client/lib",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.4.1;
 				OTHER_LDFLAGS = (
 					"-all_load",

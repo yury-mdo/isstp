@@ -20,10 +20,12 @@ class ViewController: NSViewController, NSTableViewDelegate {
     @IBOutlet weak var editBtn: NSButton!
     @IBOutlet weak var connectBtn: NSButton!
 
+    @IBOutlet weak var sstpcExecutablePath: NSTextField!
     @objc dynamic var accounts: [Account] = []
     let ud = UserDefaults.standard
     var statusTimer: Timer?
     var commandsExecuted = false
+    var appDelegate = NSApp.delegate as? AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,9 +73,10 @@ class ViewController: NSViewController, NSTableViewDelegate {
             if !commandsExecuted {
                 excecuteCommands()
             }
-            
+            appDelegate?.changeMenuIcon(iconName: "statusbar_icon_green")
         } else {
             status.stringValue = "Not Connected!"
+            appDelegate?.changeMenuIcon(iconName: "statusbar_icon_red")
         }
     }
     
@@ -109,7 +112,8 @@ class ViewController: NSViewController, NSTableViewDelegate {
 
             var sstpcPath = base! + "/sstpc"
             if self.ud.bool(forKey: "useExtSstpc") {
-                sstpcPath = self.ud.string(forKey: "sstpcPath")!
+                //sstpcPath = self.ud.string(forKey: "sstpcPath")!
+                sstpcPath = self.sstpcExecutablePath.stringValue
             }
 
             task.arguments = [
@@ -172,6 +176,7 @@ class ViewController: NSViewController, NSTableViewDelegate {
         })
         status.stringValue = "Not Connected!"
         commandsExecuted = false
+        appDelegate?.changeMenuIcon(iconName: "statusbar_icon_red")
     }
 
     func runCommand(_ cmd: String) -> String {

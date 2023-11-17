@@ -19,7 +19,9 @@
 		53A358321A9E3B4400A2185E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A358311A9E3B4400A2185E /* ViewController.swift */; };
 		53A358341A9E3B4400A2185E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53A358331A9E3B4400A2185E /* Images.xcassets */; };
 		53FA6A9E26EAB76A0082C7D2 /* install.sh in Resources */ = {isa = PBXBuildFile; fileRef = 53FA6A9D26EAB76A0082C7D2 /* install.sh */; };
-		8A1524FE2B075ACB00172A91 /* sstpc in Resources */ = {isa = PBXBuildFile; fileRef = 8A1524FD2B075ACB00172A91 /* sstpc */; };
+		8A1525032B07D28700172A91 /* statusbar_icon_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1525012B07D28700172A91 /* statusbar_icon_green.png */; };
+		8A1525042B07D28700172A91 /* statusbar_icon_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1525022B07D28700172A91 /* statusbar_icon_red.png */; };
+		8A5405F22B07DA1500F241AE /* sstpc in Resources */ = {isa = PBXBuildFile; fileRef = 8A5405F12B07DA1500F241AE /* sstpc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,9 @@
 		53B6934A26EA469E00E161B2 /* sstpc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sstpc; sourceTree = "<group>"; };
 		53FA6A9D26EAB76A0082C7D2 /* install.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 		8A1524FD2B075ACB00172A91 /* sstpc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sstpc; sourceTree = "<group>"; };
+		8A1525012B07D28700172A91 /* statusbar_icon_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_icon_green.png; path = iSstp/statusbar_icon_green.png; sourceTree = "<group>"; };
+		8A1525022B07D28700172A91 /* statusbar_icon_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_icon_red.png; path = iSstp/statusbar_icon_red.png; sourceTree = "<group>"; };
+		8A5405F12B07DA1500F241AE /* sstpc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = sstpc; path = "../../../../opt/homebrew/Cellar/sstp-client/1.0.18_1/sbin/sstpc"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,9 @@
 		53A358211A9E3B4400A2185E = {
 			isa = PBXGroup;
 			children = (
+				8A5405F12B07DA1500F241AE /* sstpc */,
+				8A1525012B07D28700172A91 /* statusbar_icon_green.png */,
+				8A1525022B07D28700172A91 /* statusbar_icon_red.png */,
 				8A1524FD2B075ACB00172A91 /* sstpc */,
 				53A3582C1A9E3B4400A2185E /* iSstp */,
 				53A3583F1A9E3B4400A2185E /* iSstpTests */,
@@ -241,7 +249,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A1524FE2B075ACB00172A91 /* sstpc in Resources */,
+				8A5405F22B07DA1500F241AE /* sstpc in Resources */,
+				8A1525032B07D28700172A91 /* statusbar_icon_green.png in Resources */,
+				8A1525042B07D28700172A91 /* statusbar_icon_red.png in Resources */,
 				53A358341A9E3B4400A2185E /* Images.xcassets in Resources */,
 				53FA6A9E26EAB76A0082C7D2 /* install.sh in Resources */,
 				534F32861A9E7F86001B7745 /* helper in Resources */,
@@ -365,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -415,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

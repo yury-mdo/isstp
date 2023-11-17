@@ -16,12 +16,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override func awakeFromNib()
     {
         statusItem = NSStatusBar.system.statusItem(withLength: 20)
-        let image: NSImage = NSImage(named: "statusbar_icon")!
+        changeMenuIcon(iconName: "statusbar_icon_red")
 
         statusItem?.title = "Status Menu"
-        statusItem?.image = image
+        
         statusItem?.highlightMode = true
         statusItem?.menu = myMenu
+    }
+    
+    func changeMenuIcon(iconName: String) {
+        let image: NSImage = NSImage(named: iconName)!
+        statusItem?.image = image
     }
 
     func doScriptWithAdmin(_ inScript:String) {

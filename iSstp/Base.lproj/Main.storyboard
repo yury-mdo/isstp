@@ -616,6 +616,7 @@
                         <outlet property="deleteBtn" destination="bxV-WC-dL7" id="rMH-it-YWG"/>
                         <outlet property="editBtn" destination="3O6-aC-DHx" id="Qup-o4-Ygd"/>
                         <outlet property="logsLabel" destination="f2Z-UI-0b0" id="td0-53-by7"/>
+                        <outlet property="sstpcExecutablePath" destination="Jrs-ol-dih" id="Tec-J1-fK2"/>
                         <outlet property="status" destination="yaB-O7-hXp" id="xtJ-mF-PXY"/>
                         <outlet property="tableView" destination="JhT-PR-tTq" id="ojf-An-rR1"/>
                     </connections>

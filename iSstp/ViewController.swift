@@ -12,6 +12,7 @@ import Foundation
 
 class ViewController: NSViewController, NSTableViewDelegate {
 
+    @IBOutlet var logsLabel: NSTextView!
     @IBOutlet dynamic var status: NSTextField!
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet var arrayController: NSArrayController!
@@ -22,6 +23,7 @@ class ViewController: NSViewController, NSTableViewDelegate {
     @objc dynamic var accounts: [Account] = []
     let ud = UserDefaults.standard
     var statusTimer: Timer?
+    var commandsExecuted = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +39,52 @@ class ViewController: NSViewController, NSTableViewDelegate {
         let notif: Notification = Notification(name: Notification.Name(rawValue: "init"), object:self)
         tableViewSelectionDidChange(notif)
     }
+    
+    func doScriptWithAdmin(_ inScript:String) {
+        // Gotta escape double quotes to allow aplpescript to parse the command correctly
+        var escapedInScript = inScript.replacingOccurrences(of: "\"", with: "\\\"")
+        printLog(log: "Execute cmd: \(escapedInScript)")
+        var script = "do shell script \"/bin/bash -c '\(escapedInScript)'\"";
+        
+        if escapedInScript.contains("sudo") {
+            script.append(" with administrator privileges")
+        }
+        
+        let appleScript = NSAppleScript(source: script)
+        if appleScript?.executeAndReturnError(nil) == nil {
+            printLog(log: "FAILED COMMAND \(escapedInScript)")
+        }
+    }
+    
+    func printLog(log: String) {
+        var str = logsLabel.textStorage?.string ?? ""
+        str.append("\n\(log)")
+        logsLabel.string = str
+    }
 
     @objc func sstpStatus() {
         let result: String = runCommand("/sbin/ifconfig ppp0 | grep 'inet' | awk '{ print $2}'")
 
         if result.range(of: "ppp0") == nil && result.count != 0 {
             status.stringValue = "Connected to server, your ip is: " + result
+            
+            if !commandsExecuted {
+                excecuteCommands()
+            }
+            
         } else {
             status.stringValue = "Not Connected!"
+        }
+    }
+    
+    func excecuteCommands() {
+        commandsExecuted = true
+        printLog(log: "Executing commands....")
+        if let commands = accounts[arrayController.selectionIndex].commands {
+            let singleCommands = commands.components(separatedBy: .newlines)
+            for c in singleCommands {
+                doScriptWithAdmin(String(c))
+            }
         }
     }
 
@@ -131,6 +171,7 @@ class ViewController: NSViewController, NSTableViewDelegate {
             print(output, terminator: "")
         })
         status.stringValue = "Not Connected!"
+        commandsExecuted = false
     }
 
     func runCommand(_ cmd: String) -> String {
@@ -171,6 +212,11 @@ class ViewController: NSViewController, NSTableViewDelegate {
 
             optionViewController.account = accounts[arrayController.selectionIndex]
             optionViewController.superViewController = self
+        } else if (segue.identifier == "Post Commands") {
+            let postCommandViewController = segue.destinationController as! PostCommandsViewController
+            
+            postCommandViewController.account = accounts[arrayController.selectionIndex]
+            postCommandViewController.superViewController = self
         }
     }
 }

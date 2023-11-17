@@ -20,6 +20,8 @@ class Account: NSObject, NSCoding {
 
     @objc dynamic var option: String?
     @objc dynamic var defaultOption: String = "usepeerdns require-mschap-v2 refuse-eap noauth noipdefault defaultroute"
+    
+    @objc dynamic var commands: String?
 
     override init() {
         doesSkipCertWarn = doesSkipCertWarnDefault
@@ -54,6 +56,12 @@ class Account: NSObject, NSCoding {
         } else {
             self.option = defaultOption
         }
+
+        if let ret = aDecoder.decodeObject(forKey: "commands") as? String {
+            self.commands = ret
+        } else {
+            self.commands = ""
+        }
     }
 
     func encode(with aCoder: NSCoder) {
@@ -68,5 +76,7 @@ class Account: NSObject, NSCoding {
         aCoder.encode(self.doesSkipCertWarn, forKey: "doesSkipCertWarn")
 
         aCoder.encode(self.option, forKey: "option")
+        
+        aCoder.encode(self.commands, forKey: "commands")
     }
 }

@@ -77,6 +77,7 @@ class ViewController: NSViewController, NSTableViewDelegate {
         } else {
             status.stringValue = "Not Connected!"
             appDelegate?.changeMenuIcon(iconName: "statusbar_icon_red")
+            commandsExecuted = false;
         }
     }
     

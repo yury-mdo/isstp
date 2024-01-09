@@ -446,6 +446,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iSstp/sstp/1.0.19/lib",
 					"$(PROJECT_DIR)/iSstp/sstp-client/lib",
+					"/usr/local/Cellar/sstp-client/1.0.19/lib",
+					"/usr/local/Cellar/sstp-client/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.4.1;
@@ -473,6 +475,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iSstp/sstp/1.0.19/lib",
 					"$(PROJECT_DIR)/iSstp/sstp-client/lib",
+					"/usr/local/Cellar/sstp-client/1.0.19/lib",
+					"/usr/local/Cellar/sstp-client/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.4.1;

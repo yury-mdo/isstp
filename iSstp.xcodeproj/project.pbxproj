@@ -76,7 +76,7 @@
 		8A1524FD2B075ACB00172A91 /* sstpc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sstpc; sourceTree = "<group>"; };
 		8A1525012B07D28700172A91 /* statusbar_icon_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_icon_green.png; path = iSstp/statusbar_icon_green.png; sourceTree = "<group>"; };
 		8A1525022B07D28700172A91 /* statusbar_icon_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_icon_red.png; path = iSstp/statusbar_icon_red.png; sourceTree = "<group>"; };
-		8A5405F12B07DA1500F241AE /* sstpc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = sstpc; path = "../../../../opt/homebrew/Cellar/sstp-client/1.0.19/sbin/sstpc"; sourceTree = "<group>"; };
+		8A5405F12B07DA1500F241AE /* sstpc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = sstpc; path = "/usr/local/Cellar/sstp-client/1.0.19/sbin/sstpc"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

@@ -18,7 +18,7 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
       - name: Install SSTPC
-        run: brew install sstp-client@1.0.18_1
+        run: brew install sstp-client
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
